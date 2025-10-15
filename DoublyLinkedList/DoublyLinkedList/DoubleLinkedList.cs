@@ -87,5 +87,38 @@ namespace DoublyLinkedList
             }
             _head = prev;
         }
+
+        public string GetMode()
+        {
+            if (_head == null)
+            {
+                return "List empty";
+            }
+            var current = _head;
+            var frequency = new Dictionary<T, int>();
+            while (current != null)
+            {
+                if (frequency.ContainsKey(current.Data))
+                {
+                    frequency[current.Data]++;
+                }
+                else
+                {
+                    frequency[current.Data] = 1;
+                }
+                current = current.Next;
+            }
+            int maxCount = frequency.Values.Max();
+            var modes = frequency.Where(x => x.Value == maxCount).Select(x => x.Key).ToList();
+
+            if (modes.Count > 1)
+            {
+                return $"Mode(s): {string.Join(", ", modes)}";
+            }
+            else
+            {
+                return $"Mode(s): {modes[0]}";
+            }
+        }
     }
 }

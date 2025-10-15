@@ -29,6 +29,9 @@ do
         case "4":
             list.ReverseOrder();
             break;
+        case "5":
+            Console.WriteLine(list.GetMode());
+            break;
         default:
             Console.WriteLine("Invalid option");
             break;
@@ -43,6 +46,7 @@ string Menu()
     Console.WriteLine("2. Show forward.");
     Console.WriteLine("3. Show backward.");
     Console.WriteLine("4. Sort descending.");
+    Console.WriteLine("5. Show the modes.");
     Console.WriteLine("0. Exit.");
     Console.Write("Enter your option: ");
     return Console.ReadLine()!;
