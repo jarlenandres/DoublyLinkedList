@@ -49,6 +49,18 @@ namespace DoublyLinkedList
             }
         }
 
+        public string GetForward()
+        {
+            var output = string.Empty;
+            var current = _head;
+            while (current != null)
+            {
+                output += $"{current.Data} <=> ";
+                current = current.Next;
+            }
+            return output.Substring(0, output.Length - 5);
+        }
+
         public string GetBackward()
         {
             var output = string.Empty;

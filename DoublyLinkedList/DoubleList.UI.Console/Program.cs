@@ -21,6 +21,9 @@ do
             }
             break;
         case "2":
+            Console.WriteLine(list.GetForward());
+            break;
+        case "3":
             Console.WriteLine(list.GetBackward());
             break;
         default:
@@ -35,6 +38,7 @@ string Menu()
     Console.WriteLine();
     Console.WriteLine("1. Insert data.");
     Console.WriteLine("2. Show forward.");
+    Console.WriteLine("3. Show backward.");
     Console.WriteLine("0. Exit.");
     Console.Write("Enter your option: ");
     return Console.ReadLine()!;
