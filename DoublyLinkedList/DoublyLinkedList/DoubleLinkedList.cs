@@ -72,5 +72,20 @@ namespace DoublyLinkedList
             }
             return output.Substring(0, output.Length - 5);
         }
+
+        public void ReverseOrder()
+        {
+            DoubleNote<T> prev = null!;
+            DoubleNote<T> current = _head!;
+            DoubleNote<T> next = null!;
+            while(current != null)
+            {
+                next = current.Next!;
+                current.Next = prev;
+                prev = current;
+                current = next;
+            }
+            _head = prev;
+        }
     }
 }
