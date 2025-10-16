@@ -129,7 +129,7 @@ namespace DoublyLinkedList
             }
             
             var graph = new Dictionary<T, int>();
-            var current = _head;
+            DoubleNote<T> current = _head;
 
             while (current != null)
             {
@@ -141,7 +141,7 @@ namespace DoublyLinkedList
                 {
                     graph[current.Data] = 1;
                 }
-                current = current.Next;
+                current = current.Next!;
             }
 
             foreach (var pair in graph.OrderBy(p => p.Key))
@@ -162,6 +162,23 @@ namespace DoublyLinkedList
                 current = current.Next!;
             }
             return $"It does not exist {data}";
+        }
+
+        public void Remove()
+        {
+            if (_head == null)
+            {
+                return;
+            }
+
+            if (_head.Next == null)
+            {
+                _head = null;
+                _tail = null;
+                return;
+            }
+            _head = _head.Next;
+            _head.Prev = null;
         }
     }
 }

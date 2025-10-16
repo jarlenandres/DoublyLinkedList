@@ -43,6 +43,10 @@ do
                 Console.WriteLine(list.GetContains(exits));
             }
             break;
+        case "8":
+            list.Remove();
+            Console.WriteLine("Item removed.");
+            break;
         default:
             Console.WriteLine("Invalid option");
             break;
@@ -60,6 +64,7 @@ string Menu()
     Console.WriteLine("5. Show the modes.");
     Console.WriteLine("6. Show graph.");
     Console.WriteLine("7. Contains.");
+    Console.WriteLine("8. Delete first item.");
     Console.WriteLine("0. Exit.");
     Console.Write("Enter your option: ");
     return Console.ReadLine()!;
