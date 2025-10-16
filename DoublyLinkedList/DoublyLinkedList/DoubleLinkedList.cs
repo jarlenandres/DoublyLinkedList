@@ -164,21 +164,33 @@ namespace DoublyLinkedList
             return $"It does not exist {data}";
         }
 
-        public void Remove()
+        public void Remove(T data)
         {
-            if (_head == null)
+            DoubleNote<T> current = _head!;
+            while (current != null)
             {
-                return;
+                if (current.Data!.Equals(data))
+                {
+                    if (current.Prev != null)
+                    {
+                        current.Prev.Next = current.Next;
+                    }
+                    else
+                    {
+                        _head = current.Next;
+                    }
+                    if (current.Next != null)
+                    {
+                        current.Next.Prev = current.Prev;
+                    }
+                    else
+                    {
+                        _tail = current.Prev;
+                    }
+                    break;
+                }
+                current = current.Next!;
             }
-
-            if (_head.Next == null)
-            {
-                _head = null;
-                _tail = null;
-                return;
-            }
-            _head = _head.Next;
-            _head.Prev = null;
         }
 
         public void RemoveAll(T data)

@@ -44,7 +44,8 @@ do
             }
             break;
         case "8":
-            list.Remove();
+            Console.Write("Enter the data: ");
+            list.Remove(Console.ReadLine()!);
             Console.WriteLine("Item removed.");
             break;
         case "9":
@@ -69,7 +70,7 @@ string Menu()
     Console.WriteLine("5. Show the modes.");
     Console.WriteLine("6. Show graph.");
     Console.WriteLine("7. Contains.");
-    Console.WriteLine("8. Delete first item.");
+    Console.WriteLine("8. Delete item.");
     Console.WriteLine("9. Delete all itema.");
     Console.WriteLine("0. Exit.");
     Console.Write("Enter your option: ");
