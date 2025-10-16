@@ -120,5 +120,48 @@ namespace DoublyLinkedList
                 return $"Mode(s): {modes[0]}";
             }
         }
+
+        public void Graph()
+        {
+            if (_head == null)
+            {
+                return;
+            }
+            
+            var graph = new Dictionary<T, int>();
+            var current = _head;
+
+            while (current != null)
+            {
+                if (graph.ContainsKey(current.Data))
+                {
+                    graph[current.Data]++;
+                }
+                else
+                {
+                    graph[current.Data] = 1;
+                }
+                current = current.Next;
+            }
+
+            foreach (var pair in graph.OrderBy(p => p.Key))
+            {
+                Console.Write($"{pair.Key} {new string('*', pair.Value)} \n");
+            }
+        }
+
+        public string GetContains(T data)
+        {
+            DoubleNote<T> current = _head!;
+            while (current != null)
+            {
+                if (current.Data!.Equals(data))
+                {
+                    return $"If it exists";
+                }
+                current = current.Next!;
+            }
+            return $"It does not exist {data}";
+        }
     }
 }
