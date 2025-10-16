@@ -47,6 +47,11 @@ do
             list.Remove();
             Console.WriteLine("Item removed.");
             break;
+        case "9":
+            Console.Write("Enter the data: ");
+            list.RemoveAll(Console.ReadLine()!);
+            Console.WriteLine("Items removed.");
+            break;
         default:
             Console.WriteLine("Invalid option");
             break;
@@ -65,6 +70,7 @@ string Menu()
     Console.WriteLine("6. Show graph.");
     Console.WriteLine("7. Contains.");
     Console.WriteLine("8. Delete first item.");
+    Console.WriteLine("9. Delete all itema.");
     Console.WriteLine("0. Exit.");
     Console.Write("Enter your option: ");
     return Console.ReadLine()!;

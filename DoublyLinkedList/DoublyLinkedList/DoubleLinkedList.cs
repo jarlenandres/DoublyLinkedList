@@ -180,5 +180,47 @@ namespace DoublyLinkedList
             _head = _head.Next;
             _head.Prev = null;
         }
+
+        public void RemoveAll(T data)
+        {
+            if (_head == null)
+            {
+                return;
+            }
+
+            DoubleNote<T> current = _head!;
+            bool item = false;
+
+            while (current != null)
+            {
+                var nextNode = current.Next;
+
+                if (current.Data!.Equals(data))
+                {
+                    item = true;
+
+                    if (current.Prev == null)
+                    {
+                        _head = current.Next;
+
+                        if (_head != null)
+                        {
+                            _head.Prev = null;
+                        }
+                    }
+                    else if (current.Next == null)
+                    {
+                        _tail = current.Prev;
+                        _tail!.Next = null;
+                    }
+                    else
+                    {
+                        current.Prev!.Next = current.Next;
+                        current.Next.Prev = current.Prev;
+                    }
+                }
+                current = nextNode!;
+            }
+        }   
     }
 }
