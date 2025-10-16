@@ -166,6 +166,10 @@ namespace DoublyLinkedList
 
         public void Remove(T data)
         {
+            if (_head == null)
+            {
+                return;
+            }
             DoubleNote<T> current = _head!;
             while (current != null)
             {
@@ -201,7 +205,6 @@ namespace DoublyLinkedList
             }
 
             DoubleNote<T> current = _head!;
-            bool item = false;
 
             while (current != null)
             {
@@ -209,8 +212,6 @@ namespace DoublyLinkedList
 
                 if (current.Data!.Equals(data))
                 {
-                    item = true;
-
                     if (current.Prev == null)
                     {
                         _head = current.Next;
